@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Spread Analyzer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            background-color: #000000;
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-black text-gray-100 p-6">
+    <div class="max-w-6xl mx-auto">
+        <!-- Main Content -->
+        <div class="text-center mb-8">
+            <h1 class="text-4xl font-bold mb-2 text-white">NFL Spread Analyzer</h1>
+            <p class="text-gray-400">Advanced betting model based on SRS and point differentials</p>
+        </div>
+
+        <!-- Input Section -->
+        <div class="bg-gray-900 rounded-lg p-6 mb-6 border border-gray-800">
+            <h2 class="text-xl font-semibold mb-4 text-white">Game Setup</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-gray-300">Team X</label>
+                    <select id="teamX" class="w-full bg-gray-800 border border-gray-700 rounded px-4 py-2 text-white focus:outline-none focus:border-gray-600">
+                        <option value="">Select Team X</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium mb-2 text-gray-300">Team Y</label>
+                    <select id="teamY" class="w-full bg-gray-800 border border-gray-700 rounded px-4 py-2 text-white focus:outline-none focus:border-gray-600">
+                        <option value="">Select Team Y</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-2 text-gray-300">Home Team</label>
+                <div class="flex gap-4">
+                    <label class="flex items-center cursor-pointer">
+                        <input type="radio" name="homeTeam" value="teamX" checked class="mr-2">
+                        <span class="text-white">Team X (Home)</span>
+                    </label>
+                    <label class="flex items-center cursor-pointer">
+                        <input type="radio" name="homeTeam" value="teamY" class="mr-2">
+                        <span class="text-white">Team Y (Home)</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <label class="block text-sm font-medium mb-2 text-gray-300">
+                    Vegas Spread (Team X perspective)
+                </label>
+                <input
+                    type="number"
+                    id="spread"
+                    step="0.5"
+                    placeholder="e.g., -3.5 (favored) or +3.5 (underdog)"
+                    class="w-full bg-gray-800 border border-gray-700 rounded px-4 py-2 text-white focus:outline-none focus:border-gray-600"
+                />
+            </div>
+
+            <button
+                onclick="calculateRecommendations()"
+                class="w-full bg-gray-700 hover:bg-gray-600 text-white font-semibold py-3 rounded transition-colors flex items-center justify-center gap-2"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                    <line x1="3" y1="9" x2="21" y2="9"></line>
+                    <line x1="9" y1="21" x2="9" y2="9"></line>
+                </svg>
+                Calculate Recommendations
+            </button>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="hidden grid-cols-1 md:grid-cols-2 gap-4"></div>
+
+        <!-- Footer -->
+        <footer class="mt-12 pt-6 border-t border-gray-800">
+            <div class="text-center">
+                <p class="text-gray-400 mb-4">Created by [Your Name]</p>
+                <div class="flex justify-center gap-6">
+                    <a href="mailto:your.email@example.com" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                            <polyline points="22,6 12,13 2,6"></polyline>
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                        Instagram
+                    </a>
+                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                        </svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Team data - fallback embedded for local testing
+        // When deployed to GitHub Pages, this will be overwritten by teams.json
+        let teams = {
+            'Arizona Cardinals': { srs: -2.1, homePD: -3.5, roadPD: -5.2 },
+            'Atlanta Falcons': { srs: 1.2, homePD: 2.1, roadPD: -1.3 },
+            'Baltimore Ravens': { srs: 5.8, homePD: 8.2, roadPD: 4.1 },
+            'Buffalo Bills': { srs: 6.2, homePD: 7.5, roadPD: 5.3 },
+            'Carolina Panthers': { srs: -4.5, homePD: -6.1, roadPD: -8.2 },
+            'Chicago Bears': { srs: -1.8, homePD: -2.3, roadPD: -4.1 },
+            'Cincinnati Bengals': { srs: 3.2, homePD: 4.5, roadPD: 2.1 },
+            'Cleveland Browns': { srs: -0.5, homePD: 1.2, roadPD: -2.8 },
+            'Dallas Cowboys': { srs: 2.8, homePD: 4.2, roadPD: 1.5 },
+            'Denver Broncos': { srs: 0.8, homePD: 2.1, roadPD: -1.2 },
+            'Detroit Lions': { srs: 7.1, homePD: 9.2, roadPD: 5.8 },
+            'Green Bay Packers': { srs: 4.2, homePD: 5.8, roadPD: 3.1 },
+            'Houston Texans': { srs: 2.1, homePD: 3.2, roadPD: 0.8 },
+            'Indianapolis Colts': { srs: -1.2, homePD: 0.5, roadPD: -3.5 },
+            'Jacksonville Jaguars': { srs: -3.2, homePD: -2.1, roadPD: -5.8 },
+            'Kansas City Chiefs': { srs: 8.5, homePD: 10.2, roadPD: 7.1 },
+            'Las Vegas Raiders': { srs: -5.1, homePD: -4.2, roadPD: -7.5 },
+            'Los Angeles Chargers': { srs: 3.5, homePD: 4.8, roadPD: 2.5 },
+            'Los Angeles Rams': { srs: 1.5, homePD: 2.8, roadPD: 0.2 },
+            'Miami Dolphins': { srs: 4.8, homePD: 6.5, roadPD: 3.2 },
+            'Minnesota Vikings': { srs: 3.8, homePD: 5.1, roadPD: 2.8 },
+            'New England Patriots': { srs: -2.8, homePD: -1.5, roadPD: -5.2 },
+            'New Orleans Saints': { srs: 0.2, homePD: 2.1, roadPD: -2.5 },
+            'New York Giants': { srs: -4.2, homePD: -3.5, roadPD: -6.8 },
+            'New York Jets': { srs: -1.5, homePD: 0.2, roadPD: -4.2 },
+            'Philadelphia Eagles': { srs: 5.2, homePD: 6.8, roadPD: 4.1 },
+            'Pittsburgh Steelers': { srs: 2.5, homePD: 4.1, roadPD: 1.2 },
+            'San Francisco 49ers': { srs: 6.8, homePD: 8.5, roadPD: 5.5 },
+            'Seattle Seahawks': { srs: 1.8, homePD: 3.5, roadPD: 0.5 },
+            'Tampa Bay Buccaneers': { srs: 2.2, homePD: 3.8, roadPD: 0.8 },
+            'Tennessee Titans': { srs: -3.5, homePD: -2.8, roadPD: -6.1 },
+            'Washington Commanders': { srs: 0.5, homePD: 1.8, roadPD: -1.5 }
+        };
+
+        // Load team data from JSON file (for production)
+        async function loadTeamData() {
+            try {
+                const response = await fetch('teams.json');
+                const jsonData = await response.json();
+                teams = jsonData; // Override embedded data with JSON file
+                populateTeamDropdowns();
+            } catch (error) {
+                // If fetch fails (local file system), use embedded data
+                console.log('Using embedded team data for local testing');
+                populateTeamDropdowns();
+            }
+        }
+
+        // Populate team dropdowns
+        function populateTeamDropdowns() {
+            const teamNames = Object.keys(teams).sort();
+            const teamXSelect = document.getElementById('teamX');
+            const teamYSelect = document.getElementById('teamY');
+            
+            teamNames.forEach(team => {
+                const option1 = document.createElement('option');
+                option1.value = team;
+                option1.textContent = team;
+                teamXSelect.appendChild(option1);
+                
+                const option2 = document.createElement('option');
+                option2.value = team;
+                option2.textContent = team;
+                teamYSelect.appendChild(option2);
+            });
+        }
+
+        function calculateRecommendation(team, opponent, isHome, spreadValue) {
+            const teamData = teams[team];
+            const oppData = teams[opponent];
+            
+            const srsDelta = teamData.srs - oppData.srs;
+            const teamPD = isHome ? teamData.homePD : teamData.roadPD;
+            const oppPD = isHome ? oppData.roadPD : oppData.homePD;
+            const pdDelta = teamPD - oppPD;
+            const pdPlusSpread = pdDelta + spreadValue;
+            
+            const recommend = srsDelta > 0.1 && pdPlusSpread > 0.5;
+            
+            return {
+                srsDelta: srsDelta.toFixed(2),
+                pdDelta: pdDelta.toFixed(2),
+                pdPlusSpread: pdPlusSpread.toFixed(2),
+                recommend
+            };
+        }
+
+        function calculateRecommendations() {
+            const teamX = document.getElementById('teamX').value;
+            const teamY = document.getElementById('teamY').value;
+            const spread = parseFloat(document.getElementById('spread').value);
+            const homeTeam = document.querySelector('input[name="homeTeam"]:checked').value;
+            
+            if (!teamX || !teamY || isNaN(spread)) {
+                alert('Please fill in all fields');
+                return;
+            }
+            
+            if (teamX === teamY) {
+                alert('Please select different teams');
+                return;
+            }
+            
+            const teamXIsHome = homeTeam === 'teamX';
+            
+            const teamXResult = calculateRecommendation(teamX, teamY, teamXIsHome, spread);
+            const teamYResult = calculateRecommendation(teamY, teamX, !teamXIsHome, -spread);
+            
+            displayResults(teamX, teamXResult, teamY, teamYResult);
+        }
+
+        function displayResults(teamXName, teamXResult, teamYName, teamYResult) {
+            const resultsDiv = document.getElementById('results');
+            resultsDiv.className = 'grid grid-cols-1 md:grid-cols-2 gap-4';
+            
+            resultsDiv.innerHTML = `
+                <!-- Team X Results -->
+                <div class="rounded-lg p-6 border-2 ${teamXResult.recommend ? 'bg-green-900/20 border-green-600' : 'bg-red-900/20 border-red-600'}">
+                    <h3 class="text-xl font-bold mb-4 text-white">${teamXName}</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">SRS Delta:</span>
+                            <span class="text-white font-medium">${teamXResult.srsDelta}</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">PD Delta:</span>
+                            <span class="text-white font-medium">${teamXResult.pdDelta}</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">PD + Spread:</span>
+                            <span class="text-white font-medium">${teamXResult.pdPlusSpread}</span>
+                        </div>
+                    </div>
+                    <div class="text-center py-3 rounded font-bold text-lg ${teamXResult.recommend ? 'bg-green-600' : 'bg-red-600'}">
+                        ${teamXResult.recommend ? '✓ BET' : '✗ DON\'T BET'}
+                    </div>
+                </div>
+
+                <!-- Team Y Results -->
+                <div class="rounded-lg p-6 border-2 ${teamYResult.recommend ? 'bg-green-900/20 border-green-600' : 'bg-red-900/20 border-red-600'}">
+                    <h3 class="text-xl font-bold mb-4 text-white">${teamYName}</h3>
+                    <div class="space-y-2 mb-4">
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">SRS Delta:</span>
+                            <span class="text-white font-medium">${teamYResult.srsDelta}</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">PD Delta:</span>
+                            <span class="text-white font-medium">${teamYResult.pdDelta}</span>
+                        </div>
+                        <div class="flex justify-between text-sm">
+                            <span class="text-gray-400">PD + Spread:</span>
+                            <span class="text-white font-medium">${teamYResult.pdPlusSpread}</span>
+                        </div>
+                    </div>
+                    <div class="text-center py-3 rounded font-bold text-lg ${teamYResult.recommend ? 'bg-green-600' : 'bg-red-600'}">
+                        ${teamYResult.recommend ? '✓ BET' : '✗ DON\'T BET'}
+                    </div>
+                </div>
+            `;
+        }
+
+        // Initialize on page load
+        loadTeamData();
+    </script>
+</body>
+</html>
