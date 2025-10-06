@@ -11,51 +11,51 @@
         }
     </style>
 </head>
-<body class="min-h-screen bg-black text-gray-100 p-6">
+<body class="min-h-screen bg-gray-800 text-gray-100 p-6">
     <div class="max-w-6xl mx-auto">
         <!-- Main Content -->
         <div class="text-center mb-8">
             <h1 class="text-4xl font-bold mb-2 text-white">NFL Spread Analyzer</h1>
-            <p class="text-gray-400">Advanced betting model based on SRS and point differentials</p>
+            <p class="text-gray-400">advanced betting model based on SRS and point differentials</p>
         </div>
 
         <!-- Input Section -->
-        <div class="bg-gray-900 rounded-lg p-6 mb-6 border border-gray-800">
-            <h2 class="text-xl font-semibold mb-4 text-white">Game Setup</h2>
+        <div class="bg-gray-600 rounded-lg p-6 mb-6 border border-gray-800">
+            <h2 class="text-xl font-semibold mb-4 text-white">setup</h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                 <div>
-                    <label class="block text-sm font-medium mb-2 text-gray-300">Team X</label>
+                    <label class="block text-sm font-medium mb-2 text-white">Team 1</label>
                     <select id="teamX" class="w-full bg-gray-800 border border-gray-700 rounded px-4 py-2 text-white focus:outline-none focus:border-gray-600">
-                        <option value="">Select Team X</option>
+                        <option value="">Select Team 1</option>
                     </select>
                 </div>
                 
                 <div>
-                    <label class="block text-sm font-medium mb-2 text-gray-300">Team Y</label>
+                    <label class="block text-sm font-medium mb-2 text-white">Team 2</label>
                     <select id="teamY" class="w-full bg-gray-800 border border-gray-700 rounded px-4 py-2 text-white focus:outline-none focus:border-gray-600">
-                        <option value="">Select Team Y</option>
+                        <option value="">Select Team 2</option>
                     </select>
                 </div>
             </div>
 
             <div class="mb-4">
-                <label class="block text-sm font-medium mb-2 text-gray-300">Home Team</label>
+                <label class="block text-sm font-medium mb-2 text-white">Home Team</label>
                 <div class="flex gap-4">
                     <label class="flex items-center cursor-pointer">
                         <input type="radio" name="homeTeam" value="teamX" checked class="mr-2">
-                        <span class="text-white">Team X (Home)</span>
+                        <span class="text-white">Team 1</span>
                     </label>
                     <label class="flex items-center cursor-pointer">
                         <input type="radio" name="homeTeam" value="teamY" class="mr-2">
-                        <span class="text-white">Team Y (Home)</span>
+                        <span class="text-white">Team 2</span>
                     </label>
                 </div>
             </div>
 
             <div class="mb-4">
-                <label class="block text-sm font-medium mb-2 text-gray-300">
-                    Vegas Spread (Team X perspective)
+                <label class="block text-sm font-medium mb-2 text-white">
+                    Vegas Spread (Team 1 perspective)
                 </label>
                 <input
                     type="number"
@@ -85,16 +85,16 @@
         <!-- Footer -->
         <footer class="mt-12 pt-6 border-t border-gray-800">
             <div class="text-center">
-                <p class="text-gray-400 mb-4">Created by [Your Name]</p>
+                <p class="text-gray-400 mb-4">created by christopher moussa</p>
                 <div class="flex justify-center gap-6">
-                    <a href="mailto:your.email@example.com" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                    <a href="mailto:christopher.moussa97@gmail.com" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
                             <polyline points="22,6 12,13 2,6"></polyline>
                         </svg>
                         Email
                     </a>
-                    <a href="https://instagram.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                    <a href="https://instagram.com/christopher.moussa" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                             <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -102,7 +102,7 @@
                         </svg>
                         Instagram
                     </a>
-                    <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
+                    <a href="https://github.com/cmoussa1" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-white transition-colors flex items-center gap-2">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
                         </svg>
@@ -230,7 +230,7 @@
 
         function displayResults(teamXName, teamXResult, teamYName, teamYResult) {
             const resultsDiv = document.getElementById('results');
-            resultsDiv.className = 'grid grid-cols-1 md:grid-cols-2 gap-4';
+            resultsDiv.className = 'max-w-2xl mx-auto';
             
             resultsDiv.innerHTML = `
                 <!-- Team X Results -->
@@ -238,15 +238,15 @@
                     <h3 class="text-xl font-bold mb-4 text-white">${teamXName}</h3>
                     <div class="space-y-2 mb-4">
                         <div class="flex justify-between text-sm">
-                            <span class="text-gray-400">SRS Delta:</span>
+                            <span class="text-gray-400">difference in SRS:</span>
                             <span class="text-white font-medium">${teamXResult.srsDelta}</span>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span class="text-gray-400">PD Delta:</span>
+                            <span class="text-gray-400">difference in point differential:</span>
                             <span class="text-white font-medium">${teamXResult.pdDelta}</span>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span class="text-gray-400">PD + Spread:</span>
+                            <span class="text-gray-400">point differential + spread:</span>
                             <span class="text-white font-medium">${teamXResult.pdPlusSpread}</span>
                         </div>
                     </div>
@@ -260,15 +260,15 @@
                     <h3 class="text-xl font-bold mb-4 text-white">${teamYName}</h3>
                     <div class="space-y-2 mb-4">
                         <div class="flex justify-between text-sm">
-                            <span class="text-gray-400">SRS Delta:</span>
+                            <span class="text-gray-400">difference in SRS:</span>
                             <span class="text-white font-medium">${teamYResult.srsDelta}</span>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span class="text-gray-400">PD Delta:</span>
+                            <span class="text-gray-400">difference in point differential:</span>
                             <span class="text-white font-medium">${teamYResult.pdDelta}</span>
                         </div>
                         <div class="flex justify-between text-sm">
-                            <span class="text-gray-400">PD + Spread:</span>
+                            <span class="text-gray-400">point differential + spread:</span>
                             <span class="text-white font-medium">${teamYResult.pdPlusSpread}</span>
                         </div>
                     </div>
