@@ -1,11 +1,11 @@
 {
   "Arizona Cardinals": {
-    "srs": 0.1,
+    "srs": -0.1,
     "homePD": 0.33,
     "roadPD": 3.0
   },
   "Atlanta Falcons": {
-    "srs": -1.2,
+    "srs": -1.3,
     "homePD": 2,
     "roadPD": -7
   },
@@ -15,12 +15,12 @@
     "roadPD": -9.0
   },
   "Buffalo Bills": {
-    "srs": -0.6,
+    "srs": -0.7,
     "homePD": 7.7,
     "roadPD": 20
   },
   "Carolina Panthers": {
-    "srs": -3.0,
+    "srs": -3.3,
     "homePD": 30,
     "roadPD": -16.7
   },
@@ -30,12 +30,12 @@
     "roadPD": -15
   },
   "Cincinnati Bengals": {
-    "srs": -11.6,
+    "srs": -11.8,
     "homePD": -4.5,
     "roadPD": -20.67
   },
   "Cleveland Browns": {
-    "srs": -12.0,
+    "srs": -12.1,
     "homePD": -0.67,
     "roadPD": -24
   },
@@ -60,22 +60,22 @@
     "roadPD": -1.5
   },
   "Houston Texans": {
-    "srs": 12.1,
+    "srs": 11.8,
     "homePD": 12.5,
     "roadPD": 7.33
   },
   "Indianapolis Colts": {
-    "srs": 13.7,
+    "srs": 13.6,
     "homePD": 20,
     "roadPD": 7
   },
   "Jacksonville Jaguars": {
-    "srs": 6.7,
+    "srs": 5.9,
     "homePD": 11.5,
     "roadPD": 0.5
   },
   "Kansas City Chiefs": {
-    "srs": 3.3,
+    "srs": 4,
     "homePD": 7,
     "roadPD": 3.5
   },
@@ -85,72 +85,72 @@
     "roadPD": -14.67
   },
   "Los Angeles Chargers": {
-    "srs": -0.7,
+    "srs": -0.5,
     "homePD": -2.67,
     "roadPD": 4
   },
   "Los Angeles Rams": {
-    "srs": 9.3,
+    "srs": 9.1,
     "homePD": 3,
     "roadPD": 3.5
   },
   "Miami Dolphins": {
-    "srs": -7.1,
+    "srs": -7.2,
     "homePD": 0,
     "roadPD": -12.67
   },
   "Minnesota Vikings": {
-    "srs": -0.4,
+    "srs": -0.5,
     "homePD": 11,
     "roadPD": 1.33
   },
   "New England Patriots": {
-    "srs": 0.1,
+    "srs": -0.1,
     "homePD": 5,
     "roadPD": 4.5
   },
   "New Orleans Saints": {
-    "srs": -8.5,
+    "srs": -8.6,
     "homePD": 0,
     "roadPD": -21.5
   },
   "New York Giants": {
-    "srs": -8.1,
+    "srs": -7.9,
     "homePD": -5,
     "roadPD": -10
   },
   "New York Jets": {
-    "srs": -11.2,
+    "srs": -11.3,
     "homePD": -12.33,
     "roadPD": -4
   },
   "Philadelphia Eagles": {
-    "srs": 7.0,
+    "srs": 7.1,
     "homePD": 2.33,
     "roadPD": 4.5
   },
   "Pittsburgh Steelers": {
-    "srs": -1.5,
+    "srs": -1.6,
     "homePD": -5.5,
     "roadPD": 4.5
   },
   "San Francisco 49ers": {
-    "srs": 5.3,
+    "srs": 5,
     "homePD": -2,
     "roadPD": 4
   },
   "Seattle Seahawks": {
-    "srs": 7.4,
+    "srs": 7.3,
     "homePD": 8,
     "roadPD": 8.5
   },
   "Tampa Bay Buccaneers": {
-    "srs": 4.1,
+    "srs": 4,
     "homePD": -2,
     "roadPD": 2.33
   },
   "Tennessee Titans": {
-    "srs": -4.3,
+    "srs": -4.4,
     "homePD": -17.5,
     "roadPD": -11
   },
