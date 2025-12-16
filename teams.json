@@ -1,162 +1,162 @@
 {
   "Arizona Cardinals": {
-    "srs": -1.5,
+    "srs": -2.1,
     "homePD": -7.57,
-    "roadPD": -2.17
+    "roadPD": -4.71
   },
   "Atlanta Falcons": {
-    "srs": -4.7,
+    "srs": -4.2,
     "homePD": -6.83,
-    "roadPD": -2.86
+    "roadPD": -2.38
   },
   "Baltimore Ravens": {
-    "srs": -1.5,
+    "srs": -0.3,
     "homePD": -3.5,
-    "roadPD": 3.8
+    "roadPD": 7.17
   },
   "Buffalo Bills": {
-    "srs": 4.5,
+    "srs": 4.6,
     "homePD": 6.29,
-    "roadPD": 6.5
+    "roadPD": 6.14
   },
   "Carolina Panthers": {
-    "srs": -3.2,
+    "srs": -3.7,
     "homePD": -0.33,
-    "roadPD": -6.86
+    "roadPD": -6.38
   },
   "Chicago Bears": {
-    "srs": -2.2,
-    "homePD": 6.6,
+    "srs": -0.7,
+    "homePD": 10.17,
     "roadPD": -4.25
   },
   "Cincinnati Bengals": {
-    "srs": -7.4,
-    "homePD": -3.17,
+    "srs": -8.6,
+    "homePD": -6.14,
     "roadPD": -11.43
   },
   "Cleveland Browns": {
-    "srs": -8.3,
+    "srs": -9.7,
     "homePD": -0.57,
-    "roadPD": -12.33
+    "roadPD": -14.57
   },
   "Dallas Cowboys": {
-    "srs": -1.5,
-    "homePD": 3.5,
+    "srs": -2.1,
+    "homePD": 1.86,
     "roadPD": -3.71
   },
   "Denver Broncos": {
-    "srs": 3.1,
-    "homePD": 10,
+    "srs": 3.4,
+    "homePD": 9.71,
     "roadPD": 1.86
   },
   "Detroit Lions": {
-    "srs": 5.2,
+    "srs": 5.6,
     "homePD": 11.57,
-    "roadPD": 1.5
+    "roadPD": 0.29
   },
   "Green Bay Packers": {
-    "srs": 3.6,
+    "srs": 3.2,
     "homePD": 7.14,
-    "roadPD": 4.17
+    "roadPD": 2.43
   },
   "Houston Texans": {
-    "srs": 9.7,
-    "homePD": 7.33,
+    "srs": 10.2,
+    "homePD": 9.14,
     "roadPD": 4.43
   },
   "Indianapolis Colts": {
-    "srs": 7,
+    "srs": 7.4,
     "homePD": 12.86,
-    "roadPD": 0.17
+    "roadPD": -0.14
   },
   "Jacksonville Jaguars": {
-    "srs": 6.7,
-    "homePD": 5.14,
+    "srs": 7.2,
+    "homePD": 8,
     "roadPD": 3.33
   },
   "Kansas City Chiefs": {
-    "srs": 5.7,
-    "homePD": 10.29,
+    "srs": 5.2,
+    "homePD": 8.63,
     "roadPD": -1.5
   },
   "Las Vegas Raiders": {
-    "srs": -10.5,
+    "srs": -11.3,
     "homePD": -5.86,
-    "roadPD": -15.83
+    "roadPD": -18
   },
   "Los Angeles Chargers": {
-    "srs": -0.1,
+    "srs": 0.7,
     "homePD": 5,
-    "roadPD": -2.4
+    "roadPD": -1.5
   },
   "Los Angeles Rams": {
-    "srs": 14.1,
-    "homePD": 10.33,
+    "srs": 13.9,
+    "homePD": 9.86,
     "roadPD": 12.86
   },
   "Miami Dolphins": {
-    "srs": -3.7,
+    "srs": -4.3,
     "homePD": 0,
-    "roadPD": -2.5
+    "roadPD": -4
   },
   "Minnesota Vikings": {
-    "srs": -2.6,
+    "srs": -1.4,
     "homePD": 6.17,
-    "roadPD": -9
+    "roadPD": -6.88
   },
   "New England Patriots": {
-    "srs": 3.4,
-    "homePD": 9.43,
+    "srs": 2.7,
+    "homePD": 7.75,
     "roadPD": 7.33
   },
   "New Orleans Saints": {
     "srs": -6.6,
-    "homePD": -6.67,
+    "homePD": -5.29,
     "roadPD": -9.86
   },
   "New York Giants": {
-    "srs": -5.2,
-    "homePD": -2,
+    "srs": -5.6,
+    "homePD": -3,
     "roadPD": -9.75
   },
   "New York Jets": {
-    "srs": -9.4,
+    "srs": -10.4,
     "homePD": -7.5,
-    "roadPD": -6.6
+    "roadPD": -10.17
   },
   "Philadelphia Eagles": {
-    "srs": 2.6,
-    "homePD": 3.83,
+    "srs": 3.7,
+    "homePD": 7.71,
     "roadPD": -0.71
   },
   "Pittsburgh Steelers": {
-    "srs": -1,
-    "homePD": 0.43,
+    "srs": -0.5,
+    "homePD": 2,
     "roadPD": -1
   },
   "San Francisco 49ers": {
-    "srs": 5.5,
-    "homePD": 0.2,
+    "srs": 5.1,
+    "homePD": 2.33,
     "roadPD": 4.63
   },
   "Seattle Seahawks": {
-    "srs": 12.8,
-    "homePD": 13.33,
+    "srs": 12.6,
+    "homePD": 11.71,
     "roadPD": 11.57
   },
   "Tampa Bay Buccaneers": {
-    "srs": 0.4,
-    "homePD": 0.17,
+    "srs": -0.2,
+    "homePD": 0,
     "roadPD": -3.86
   },
   "Tennessee Titans": {
-    "srs": -8.1,
+    "srs": -7.9,
     "homePD": -13,
-    "roadPD": -10.83
+    "roadPD": -11.14
   },
   "Washington Commanders": {
-    "srs": -6.9,
+    "srs": -6,
     "homePD": -2.67,
-    "roadPD": -10.86
+    "roadPD": -8.5
   }
 }
